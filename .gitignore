@@ -1,21 +1,11 @@
-# OS files
-.DS_Store
-Thumbs.db
+# Ignore local class materials
+class_materials/
 
-# Python cache
+# Ignore Python cache files
 __pycache__/
 *.pyc
-*.pyo
 
-# Jupyter checkpoints
-.ipynb_checkpoints/
-
-# Virtual environments
-.venv/
-env/
-venv/
-
-# Environment & secrets
+# Ignore environment files
 .env
-.env.*
-*.secret
+.DS_Store
+.ipynb_checkpoints/
