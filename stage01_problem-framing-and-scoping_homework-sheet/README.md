@@ -1,44 +1,49 @@
-# Short-Term Futures Price Prediction
-**Stage:** Problem Framing & Scoping (Stage 01)
+[README.md](https://github.com/user-attachments/files/21995925/README.md)
+# Project Title  
+**Cross-Asset Correlation Analysis**  
+**Stage:** Problem Framing & Scoping (Stage 01)  
 
-## Problem Statement
-Junior futures desk traders experience intraday price volatility uncertainty and have limited quantitative guidelines on timing trade entry/exit points. In the absence of real-time predictive assistance, they use subjective discretion and senior guidance that may fail to capture high-probability trades or subject them to unnecessary exposure. Hence, this project proposes to develop a model to predict the next 1–5 minute price direction for chosen futures contracts (e.g., E-mini S&P 500, crude oil) based on order book depth, tick data, and recent price trends.
-Precise, timely predictions can assist traders in enhancing entry and exit timing, minimizing exposure to unfavorable moves, and managing risk capital more effectively during the trading session.
+## Problem Statement  
+Financial markets are highly interconnected, and the correlation between different asset classes (such as equities, bonds, and commodities) shifts under varying economic and market conditions. Understanding these correlations is critical for risk management, asset allocation, and portfolio diversification. The problem is that investors and fund managers often rely on static or outdated assumptions about correlations, which may not reflect current market realities.  
 
-## Stakeholder & User
-**Decision-maker:** Junior futures traders.  
-**Users:** Same as decision-makers.  
-**Timing & workflow:** Intraday, with updates every 1–5 minutes. Predictions must integrate into existing charting tools or dashboards with minimal disruption to the trader’s workflow.
+This project aims to analyze cross-asset correlations dynamically, identifying how relationships between asset classes change over time and under stress conditions (e.g., recessions, inflationary periods, monetary policy shifts). The findings will help stakeholders make better-informed decisions about hedging, diversification, and capital allocation.  
 
-## Useful Answer & Decision
-**Type:** Predictive.  
-**Metric:** Directional signal accuracy ≥ 55% on a rolling 2-week window, Sharpe ratio improvement ≥ 0.3 over baseline discretionary trading.  
-**Artifact:** Real-time directional signal (+1 = long, 0 = hold, –1 = short) with probability score, delivered via API feed or dashboard overlay.
+## Stakeholder & User  
+- **Primary Stakeholder:** Portfolio managers and risk managers at hedge funds, trading firms, and asset management companies.  
+- **End Users:** Quantitative analysts and traders who implement strategies and monitor portfolio risk.  
+- **Context:** Stakeholders need real-time and historical insights into cross-asset relationships to guide decisions about portfolio rebalancing, hedging strategies, and stress testing.  
 
-## Assumptions & Constraints
-- Live tick/order book data feed is available via broker API.
-- Prediction latency ≤ 500ms for each update.
-- Model output must be explainable enough for trader adoption.
-- Integrates into existing charting platforms (e.g., TradingView, Bloomberg).
-- No proprietary data leaves the local environment.
+## Useful Answer & Decision  
+- **Type of Answer:** Descriptive & Predictive.  
+- **Outputs:**  
+  - Correlation matrices and heatmaps across equities, bonds, and commodities.  
+  - Time-varying correlation analysis (e.g., rolling-window, DCC-GARCH).  
+  - Stress-period analysis showing shifts in correlations during crises.  
+- **Decision Impact:**  
+  - Adjusting asset allocation for diversification.  
+  - Anticipating breakdowns in hedging effectiveness.  
+  - Informing strategy development for trading and risk management.  
 
-## Known Unknowns / Risks
-- Regime shifts caused by macroeconomic events.
-- Sudden drops in liquidity or order book depth.
-- Temporary market data feed outages.
-- Potential overfitting to historical intraday patterns.
-- Mitigation strategies include fallback to simple moving-average-based signals and continuous backtesting.
+## Assumptions & Constraints  
+- Historical data for equities, bonds, and commodities is available and reliable.  
+- Correlation patterns are informative for future diversification strategies.  
+- Analysis will be limited to major indices (e.g., S&P 500, U.S. Treasuries, Gold/Oil).  
+- Computational capacity is sufficient for rolling-window and advanced econometric models.  
 
-## Lifecycle Mapping
-Goal → Stage → Deliverable
-- Define scope, stakeholders, and success metrics → Problem Framing & Scoping (Stage 01) → README.md + stakeholder memo + one-pager
-- Build baseline predictive model → EDA & Baselines (Stage 02) → exploratory notebook + baseline model report
-- Tune model for live deployment → Modeling & Validation (Stage 03) → validated model + deployment script
-- Integrate into trader workflow → Delivery & Handoff (Stage 04) → dashboard/API + usage guide
+## Known Unknowns / Risks  
+- Correlations are not stable and may shift unpredictably during market crises.  
+- Limited availability of clean, high-frequency data across all asset classes.  
+- Risk of overfitting models if using too many variables or complex econometric techniques.  
+- Macro shocks (e.g., policy changes, geopolitical events) may distort correlation patterns.  
 
-## Repo Plan
-- `/data/` : Historical and real-time futures price/order book data.
-- `/src/` : Data processing, feature engineering, and model scripts.
-- `/notebooks/` : EDA, model prototyping, and backtesting notebooks.
-- `/docs/` : Stakeholder memo, one-pager, and project documentation.
-- **Update cadence:** Weekly commits; continuous integration for model updates once live.
+## Lifecycle Mapping  
+Goal → Stage → Deliverable  
+- Define the real-world problem → Problem Framing & Scoping (Stage 01) → Scoping paragraph in README.md  
+- Identify stakeholders → Problem Framing & Scoping (Stage 01) → Stakeholder memo / persona  
+- Establish assumptions, risks, and constraints → Problem Framing & Scoping (Stage 01) → Section in README.md  
+- Initialize repo → Problem Framing & Scoping (Stage 01) → GitHub repo with folder tree  
+
+## Repo Plan  
+- Folder structure: `/data/`, `/src/`, `/notebooks/`, `/docs/`  
+- README.md with scoping text, stakeholder goals, and lifecycle mapping.  
+- Cadence: Update repo weekly with data, models, and results.  
